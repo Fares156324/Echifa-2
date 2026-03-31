@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from vetsclinics.com/blogs/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 Mar 2026 04:31:34 GMT -->
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Blog | VETS Clinics</title>
+  <meta name="description" content="Vets, clinique vétérinaire à Grand Tunis (Marsa, Manar, Hammam Lif), assure urgences 24/7, soins, chirurgie, analyses et vaccination pour chiens, chats et NAC." />
+  <meta name="keywords" content="clinique vétérinaire Grand Tunis, vétérinaire La Marsa, vétérinaire El Manar, vétérinaire Hammam Lif, urgence vétérinaire 24/7, soins vétérinaires chiens chats, vaccination animaux, chirurgie vétérinaire, hospitalisation animaux, stérilisation chien chat, radiographie vétérinaire, analyses médicales animaux, hospitalisation NAC, consultations spécialisées vétérinaire, vétérinaire de garde Tunis, dermatologie vétérinaire, dentisterie animale" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/vets_cropped.png" rel="icon">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/" rel="preconnect">
+  <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const spaceId = 'cg1mybt2b9x3';
+    const accessToken = '0eR45Xgv6lUaC7DhQYr9exeCtOlwzkXh1xiKl0EPaKo';
+    const contentType = 'blogPost';
+    const postsPerPage = 6; // Number of posts per page
+
+    let currentPage = 1;
+
+    const loadPosts = (page) => {
+      const offset = (page - 1) * postsPerPage;
+      const url = `https://cdn.contentful.com/spaces/${spaceId}/environments/master/entries?access_token=${accessToken}&content_type=${contentType}&include=1&limit=${postsPerPage}&skip=${offset}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data); // Log the data for debugging
+          const container = document.getElementById('blog-list');
+          if (!container) return; // Ensure container exists
+          container.innerHTML = ''; // Clear previous posts
+          const items = data.items;
+          const assets = data.includes?.Asset || [];
+
+          items.forEach(item => {
+            const fields = item.fields;
+
+            const blogImageId = fields.thumbnail?.sys?.id;
+            const authorImageId = fields.authorImage?.sys?.id;
+
+            const blogImage = assets.find(asset => asset.sys.id === blogImageId);
+            const authorImage = assets.find(asset => asset.sys.id === authorImageId);
+
+            const blogImgUrl = blogImage ? 'https:' + blogImage.fields.file.url : '../assets/img/default.webp';
+            const authorImgUrl = authorImage ? 'https:' + authorImage.fields.file.url : '../assets/img/blog/default-author.jpg';
+
+            const postDate = new Date(fields.date).toLocaleDateString('en-US', {
+              year: 'numeric', month: 'short', day: 'numeric'
+            });
+
+            const col = document.createElement('div');
+            col.className = 'col-lg-4';
+
+            col.innerHTML = `
+              <article>
+                <div class="post-img">
+                  <img src="${blogImgUrl}" alt="" class="img-fluid">
+                </div>
+                <p class="post-category">${fields.category || 'Uncategorized'}</p>
+                <h2 class="title">
+                  <a href="../blog-details.html?slug=${item.fields.slug}">
+                    ${fields.title || 'No Title'}
+                  </a>
+                </h2>
+                <p class="post-description">
+                  ${fields.description || 'No description available.'}
+                </p>
+              </article>  
+            `;
+
+            container.appendChild(col);
+          });
+
+          // Update pagination
+          const totalPosts = data.total;
+          updatePagination(totalPosts);
+        })
+        .catch(error => console.error('Error loading blog posts:', error));
+    };
+
+    // Update pagination controls
+    const updatePagination = (totalPosts) => {
+      const paginationContainer = document.getElementById('blog-pagination');
+      const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+      const paginationHTML = [];
+      paginationHTML.push('<li><a href="#" onclick="changePage(1)"><i class="bi bi-chevron-left"></i></a></li>');
+
+      for (let i = 1; i <= totalPages; i++) {
+        paginationHTML.push(`<li><a href="#" onclick="changePage(${i})" class="${i === currentPage ? 'active' : ''}">${i}</a></li>`);
+      }
+
+      paginationHTML.push('<li><a href="#" onclick="changePage(' + totalPages + ')"><i class="bi bi-chevron-right"></i></a></li>');
+      paginationContainer.innerHTML = `
+        <div class="container">
+          <div class="d-flex justify-content-center">
+            <ul>${paginationHTML.join('')}</ul>
+          </div>
+        </div>
+      `;
+    };
+
+    // Change page function
+    const changePage = (page) => {
+      if (page !== currentPage) {
+        currentPage = page;
+        loadPosts(currentPage);
+      }
+    };
+
+    // Load first page on initial load
+    loadPosts(currentPage);
+  });
+</script>
+
+
+<body class="blog-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="../assets/img/vets.png" alt="logo">
+
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+
+          <li><a href="../index.html#services">Nos services</a></li>
+          <li><a href="../index.html#expertise">Expertise</a></li>
+          <li><a href="../experts/index.html">Team</a></li>
+
+          <li><a href="../index.html#programmes">Nos programmes</a></li>
+          <li><a href="../index.html#app">App MyVets</a></li>
+          <li><a href="index.html" class="active">Blogs</a></li>
+
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="cta-btn" href="tel:+21698177947">Urgences</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade"
+      style="background-image: url(../assets/img/Veterinaire.webp); background-position: center 80%;">
+      <div class="container position-relative">
+        <h1>Blogs</h1>
+        <p>Conseils, histoires et astuces pour prendre soin de vos animaux et renforcer votre lien avec eux.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="../index.html">Accueil</a></li>
+            <li class="current">Blog</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Blog Posts Section -->
+    <section id="blog-posts" class="blog-posts section">
+
+      <div class="container">
+        <div class="row gy-4" id="blog-list">
+
+        </div>
+      </div>
+
+    </section><!-- /Blog Posts Section -->
+      <!-- Pagination Section -->
+  <section id="blog-pagination" class="blog-pagination section">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <ul>
+          <li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#" class="active">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li>...</li>
+          <li><a href="#">10</a></li>
+          <li><a href="#"><i class="bi bi-chevron-right"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+  </main>
+
+  <footer id="footer">
+    <section class="bg-dark text-light">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="lc-block mb-4">
+              <img class="img-fluid" alt="logo" src="../assets/img/vets.png" style="max-height:6vh">
+            </div>
+            <div class="lc-block small">
+              <div editable="rich">
+                <p>Engagés pour le bien-être animal, nous offrons des soins vétérinaires de qualité, adaptés aux besoins de vos compagnons.</p>
+              </div>
+            </div>
+            <!-- /lc-block -->
+            <div class="lc-block py-2">
+              <a href="https://www.facebook.com/VETSClinics"><i class="bi bi-facebook text-white"></i></a>
+              <a href="https://www.instagram.com/vets_clinics/"><i class="bi bi-instagram text-white"></i></a>
+              <a href="https://www.linkedin.com/company/vets-réseau-d-experts"><i
+                  class="bi bi-linkedin text-white"></i></a>
+              <a href="https://www.tiktok.com/@vets_clinics"><i class="bi bi-tiktok text-white"></i></a>
+
+            </div>
+    
+          </div>
+          <div class="col-lg-2 offset-lg-1">
+            <div class="lc-block mb-4">
+              <div editable="rich">
+                <h4 class="text-white">Site</h4>
+              </div>
+            </div>
+            <!-- /lc-block -->
+            <div class="lc-block small">
+              <div editable="rich">
+                <div class="mb-3">
+                  <a href="../index.html" class="text-white">Accueil</a>
+                </div>
+                <div class="mb-3">
+                  <a href="../about/index.html" class="text-white">A propos</a>
+                </div>
+                <div class="mb-3">
+                  <a href="../become-partner/index.html" class="text-white">Devenir un partenaire</a>
+                </div>
+                <div class="mb-3">
+                  <a href="../experts/index.html" class="text-white">Experts</a>
+                </div>
+              </div>
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col-lg-2 offset-lg-1">
+            <div class="lc-block mb-4">
+              <div editable="rich">
+                <h4 class="text-white">MyVets App</h4>
+              </div>
+            </div>
+            <!-- /lc-block -->
+            <div class="lc-block small mb-3">
+              <div editable="rich">
+                <div class="mb-3">
+                  <a href="https://myvetsapp.tn/" class="text-white">Web</a>
+                </div>
+                <div class="mb-3">
+                  <a href="https://apps.apple.com/us/app/myvets-app/id6738483756" target="_blank" class="text-white">IOS</a>
+                </div>
+                <div class="mb-3">
+                  <a href="https://play.google.com/store/apps/details?id=tn.myvetsapp.myvets" target="_blank"
+                    class="text-white">Android</a>
+                </div>
+              </div>
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <div class="col-lg-2 offset-lg-1">
+            <div class="lc-block mb-4">
+              <div editable="rich">
+                <h4 class="text-white">Contact</h4>
+              </div>
+            </div>
+            <!-- /lc-block -->
+            <div class="lc-block small">
+              <div editable="rich">
+                  <div class="mb-3">
+                      <i class="bi bi-envelope text-white"></i>
+                      <a href="mailto:contact@vetsclinics.com" class="text-white ms-2">contact@vetsclinics.com</a>
+                  </div>
+                  <div class="mb-3">
+                      <i class="bi bi-telephone text-white"></i>
+                      <a href="tel:+21671138740" class="text-white ms-2">71 138 740</a>
+                  </div>
+                  <p><i class="bi bi-geo-alt text-white"></i><span class="ms-2">VETS - Hammam Lif</span></p>
+                  <p><i class="bi bi-geo-alt text-white"></i><span class="ms-2">VETS - Manar</span></p>
+                  <p><i class="bi bi-geo-alt text-white"></i><span class="ms-2">VETS - La Marsa</span></p>
+              </div>
+          </div>
+            <!-- /lc-block -->
+          </div>
+        </div>
+      </div>
+      <div class="py-5 container">
+        <div class="row">
+          <div class="col-6 small">
+            <div class="lc-block">
+              <div editable="rich">
+                <p>Copyright © <a href="https://www.dipawer.com/" target="_blank">Dipawer</a> 2025</p>
+              </div>
+            </div>
+            <!-- /lc-block -->
+          </div>
+          <!-- <div class="col-6 text-end small">
+            <div class="lc-block">
+              <div editable="rich">
+                <p>
+                  <a class="text-decoration-none" href="#">License Details</a> -
+                  <a class="text-decoration-none" href="#">Terms &amp; Conditions</a>
+                </p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+     
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+
+<!-- Mirrored from vetsclinics.com/blogs/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 31 Mar 2026 04:31:35 GMT -->
+</html>
