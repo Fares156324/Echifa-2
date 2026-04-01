@@ -228,7 +228,7 @@ h6 {
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 2px 0;
+  padding: 0;
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -239,7 +239,7 @@ h6 {
 }
 
 .header .logo img {
-  width: 169px;
+  width: 135px;
   height: auto;
   max-width: 100%;
   margin-right: 8px;
@@ -313,7 +313,7 @@ h6 {
   color: var(--contrast-color);
   background: var(--danger-color);
   font-size: 14px;
-  padding: 7px 22px;
+  padding: 6px 20px;
   margin: 0;
   border-radius: 50px;
   transition: 0.3s;
@@ -331,7 +331,7 @@ h6 {
   }
 
   .header .logo img {
-    width: 125px;
+    width: 100px;
   }
 
   .header .logo h1 {
@@ -341,7 +341,7 @@ h6 {
   .header .cta-btn {
     order: 2;
     margin: 0 15px 0 0;
-    padding: 5px 18px;
+    padding: 4px 16px;
   }
   
 
@@ -2936,6 +2936,11 @@ section,
   --service-theme-mid: #f7fbff;
   --service-theme-bottom: #ffffff;
   --service-theme-ink: rgba(18, 54, 89, 0.08);
+  --service-title-color: #0f2741;
+  --service-copy-color: #314b63;
+  --service-strong-color: #0b3d73;
+  font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+  color: var(--service-copy-color);
   background:
     radial-gradient(1200px 520px at 10% -8%, rgba(69, 132, 209, 0.2) 0%, transparent 60%),
     radial-gradient(900px 460px at 92% 8%, rgba(105, 182, 225, 0.16) 0%, transparent 62%),
@@ -2996,6 +3001,7 @@ section,
   z-index: 2;
   padding-top: 16px;
   transform: translateY(22px);
+  max-width: 980px;
 }
 
 .service-badge {
@@ -3013,9 +3019,33 @@ section,
 .service-card {
   background: linear-gradient(180deg, #ffffff 0%, #fafdff 100%);
   border: 1px solid rgba(65, 121, 190, 0.15);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 26px;
   box-shadow: 0 12px 30px rgba(17, 33, 55, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(54, 120, 198, 0.28);
+  box-shadow: 0 20px 36px rgba(17, 33, 55, 0.14);
+}
+
+.service-card h3,
+.service-card h4 {
+  color: var(--service-title-color);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.service-card p,
+.service-list li {
+  color: var(--service-copy-color);
+  line-height: 1.68;
+}
+
+.service-list li strong {
+  color: var(--service-strong-color);
 }
 
 .service-list {
@@ -3157,28 +3187,28 @@ section,
 }
 
 .header {
-  padding: 8px 0;
+  padding: 6px 0;
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 10px 25px rgba(8, 23, 40, 0.1);
 }
 
 .header .logo img {
-  width: clamp(155px, 12vw, 205px);
+  width: clamp(124px, 9.6vw, 164px);
 }
 
 .header .cta-btn,
 .header .cta-btn:focus {
   font-size: 15px;
   font-weight: 600;
-  padding: 9px 24px;
+  padding: 7px 19px;
   border-radius: 999px;
   box-shadow: 0 8px 20px rgba(232, 66, 66, 0.22);
 }
 
 @media (min-width: 1200px) {
   .navmenu > ul > li {
-    padding: 14px 15px;
+    padding: 11px 12px;
   }
 
   .navmenu a,
@@ -3301,13 +3331,13 @@ h3 {
 
 @media (max-width: 1199px) {
   .header {
-    padding: 6px 0;
+    padding: 5px 0;
   }
 
   .header .cta-btn,
   .header .cta-btn:focus {
     font-size: 14px;
-    padding: 8px 18px;
+    padding: 6px 14px;
   }
 
   .page-title {
@@ -3326,7 +3356,7 @@ h3 {
   }
 
   .header .logo img {
-    width: 138px;
+    width: 110px;
   }
 
   .hero h2 {
