@@ -228,7 +228,7 @@ h6 {
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 10px 0;
+  padding: 4px 0;
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -239,7 +239,9 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 42px;
+  width: 169px;
+  height: auto;
+  max-width: 100%;
   margin-right: 8px;
 }
 
@@ -326,6 +328,10 @@ h6 {
 @media (max-width: 1200px) {
   .header .logo {
     order: 1;
+  }
+
+  .header .logo img {
+    width: 125px;
   }
 
   .header .logo h1 {
