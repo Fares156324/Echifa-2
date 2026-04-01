@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="Assurances">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#cde4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" rx="24" fill="url(#bg)"/>
+  <path d="M720 80 C900 20 1080 40 1200 100 L1200 520 L700 520 C680 430 690 210 720 80 Z" fill="#9dc7f9" opacity=".25"/>
+  <path d="M760 130 l110 45 110-45 0 110 c0 96-87 158-110 171-23-13-110-75-110-171z" fill="#6faeea" opacity=".55"/>
+  <rect x="915" y="225" width="170" height="230" rx="20" fill="#86bdf2" opacity=".72"/>
+  <g stroke="#f7fcff" stroke-width="10" stroke-linecap="round" opacity=".9">
+    <path d="M953 270 l24 20 34-38"/>
+    <path d="M953 325 l24 20 34-38"/>
+    <path d="M953 380 l24 20 34-38"/>
+  </g>
+  <circle cx="1105" cy="438" r="32" fill="#7caee4" opacity=".8"/>
+  <path d="M1088 438 h34" stroke="#ffffff" stroke-width="6"/>
+  <path d="M1105 421 v34" stroke="#ffffff" stroke-width="6"/>
+</svg>

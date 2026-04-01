@@ -1,0 +1,26 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="Docteur hotel">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5fffc"/>
+      <stop offset="100%" stop-color="#c7f2ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" rx="24" fill="url(#bg)"/>
+  <rect x="790" y="70" width="285" height="300" rx="12" fill="#8fd6c9" opacity=".72"/>
+  <rect x="760" y="125" width="345" height="40" rx="10" fill="#7bcfc1" opacity=".8"/>
+  <g fill="#c6f3eb" opacity=".9">
+    <rect x="830" y="178" width="34" height="38"/>
+    <rect x="888" y="178" width="34" height="38"/>
+    <rect x="946" y="178" width="34" height="38"/>
+    <rect x="1004" y="178" width="34" height="38"/>
+    <rect x="830" y="238" width="34" height="38"/>
+    <rect x="888" y="238" width="34" height="38"/>
+    <rect x="946" y="238" width="34" height="38"/>
+    <rect x="1004" y="238" width="34" height="38"/>
+  </g>
+  <rect x="715" y="338" width="195" height="130" rx="24" fill="#75cfbf" opacity=".82"/>
+  <rect x="798" y="366" width="30" height="76" rx="8" fill="#ecfffb"/>
+  <rect x="771" y="394" width="84" height="22" rx="8" fill="#ecfffb"/>
+  <path d="M690 350 C705 300 740 285 780 284 C757 325 734 350 690 350 Z" fill="#95decf" opacity=".8"/>
+  <path d="M1100 350 C1114 305 1145 292 1180 292 C1162 330 1138 351 1100 350 Z" fill="#95decf" opacity=".8"/>
+</svg>

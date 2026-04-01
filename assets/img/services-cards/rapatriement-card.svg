@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="Rapatriement">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2f9ff"/>
+      <stop offset="100%" stop-color="#cde6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" rx="24" fill="url(#bg)"/>
+  <circle cx="985" cy="385" r="126" fill="#8ec2f3" opacity=".45"/>
+  <path d="M816 235 c90-44 220-48 350 10 l-54 34 c-96-37-185-35-265 4 z" fill="#8ec2f3" opacity=".78"/>
+  <path d="M836 279 c100-32 216-24 315 22 l-34 22 c-77-30-164-35-258-9 z" fill="#7db7ee" opacity=".8"/>
+  <ellipse cx="1008" cy="458" rx="104" ry="26" fill="#9dcbf5" opacity=".52"/>
+  <path d="M924 380 h124" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+  <path d="M1065 355 l23 25 -23 25" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+</svg>

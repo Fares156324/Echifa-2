@@ -228,7 +228,7 @@ h6 {
   --heading-color: #ffffff;
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 4px 0;
+  padding: 2px 0;
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -313,7 +313,7 @@ h6 {
   color: var(--contrast-color);
   background: var(--danger-color);
   font-size: 14px;
-  padding: 8px 26px;
+  padding: 7px 22px;
   margin: 0;
   border-radius: 50px;
   transition: 0.3s;
@@ -341,7 +341,7 @@ h6 {
   .header .cta-btn {
     order: 2;
     margin: 0 15px 0 0;
-    padding: 6px 20px;
+    padding: 5px 18px;
   }
   
 
@@ -379,7 +379,7 @@ h6 {
 
   .navmenu>ul>li {
     white-space: nowrap;
-    padding: 15px 14px;
+    padding: 11px 14px;
   }
 
   .navmenu>ul>li:last-child {
@@ -413,7 +413,7 @@ h6 {
     content: "";
     position: absolute;
     height: 2px;
-    bottom: -27px;
+    bottom: -21px;
     left: 0;
     background-color: var(--nav-hover-color);
     visibility: hidden;
@@ -992,6 +992,127 @@ section,
   border-radius: 18px;
   border-bottom: 5px solid var(--surface-color);
   height: 100%;
+}
+
+.services .service-item.service-menu-card {
+  --service-accent: #2f79b8;
+  --service-border: rgba(47, 121, 184, 0.45);
+  padding: 34px 28px;
+  min-height: 300px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid var(--service-border);
+  box-shadow: 0 14px 34px rgba(25, 45, 75, 0.12);
+  background-size: 100% 100%;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.services .service-item.service-menu-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 43%, rgba(255, 255, 255, 0.12) 72%, rgba(255, 255, 255, 0.02) 100%);
+  pointer-events: none;
+}
+
+.services .service-item.service-menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 38px rgba(22, 40, 66, 0.16);
+}
+
+.services .service-item.service-menu-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.services .service-item.service-menu-card .stretched-link::after {
+  z-index: 4;
+}
+
+.services .service-item.service-menu-card > * {
+  pointer-events: none;
+}
+
+.services .service-item.service-menu-card .stretched-link,
+.services .service-item.service-menu-card .stretched-link::after {
+  pointer-events: auto;
+}
+
+.services .service-item.service-menu-card .icon {
+  width: 84px;
+  height: 84px;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f6fbff 65%, #eef6ff 100%);
+  border: 1px solid color-mix(in srgb, var(--service-accent), #ffffff 70%);
+  color: var(--service-accent);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  font-size: 36px;
+}
+
+.services .service-item.service-menu-card h3 {
+  color: color-mix(in srgb, var(--service-accent), #0d2f52 35%);
+}
+
+.services .service-item.service-menu-card p {
+  color: #283547;
+  font-size: 18px;
+  line-height: 1.45;
+  max-width: 350px;
+}
+
+@media (max-width: 768px) {
+  .services .service-item.service-menu-card {
+    min-height: 260px;
+    padding: 26px 20px;
+    background-position: right center;
+  }
+
+  .services .service-item.service-menu-card p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .services .service-item.service-menu-card .icon {
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+  }
+}
+
+.services .service-item.service-assurances {
+  --service-accent: #2f79b8;
+  --service-border: rgba(47, 121, 184, 0.5);
+  background-image: url("../img/services-cards/assurances-card.svg");
+}
+
+.services .service-item.service-docteur {
+  --service-accent: #1ea793;
+  --service-border: rgba(30, 167, 147, 0.45);
+  background-image: url("../img/services-cards/docteur-hotel-card.svg");
+}
+
+.services .service-item.service-ambulances {
+  --service-accent: #df5d5d;
+  --service-border: rgba(223, 93, 93, 0.5);
+  background-image: url("../img/services-cards/ambulances-card.svg");
+}
+
+.services .service-item.service-hospitalisation {
+  --service-accent: #8a6fe8;
+  --service-border: rgba(138, 111, 232, 0.5);
+  background-image: url("../img/services-cards/hospitalisation-card.svg");
+}
+
+.services .service-item.service-ehpad {
+  --service-accent: #d6942f;
+  --service-border: rgba(214, 148, 47, 0.5);
+  background-image: url("../img/services-cards/ehpad-card.svg");
+}
+
+.services .service-item.service-rapatriement {
+  --service-accent: #4f9be2;
+  --service-border: rgba(79, 155, 226, 0.5);
+  background-image: url("../img/services-cards/rapatriement-card.svg");
 }
 
 .services .urgency-service-item {
@@ -2626,11 +2747,6 @@ section,
 }
 
 
-.music-btn{
-  background-color: transparent;
-  border: 0;
-}
-
 .lc-block h7{
   font-weight: 400;
 }
@@ -2638,4 +2754,90 @@ section,
 .small_text{
   font-size: 0.7em;
   margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Service Detail Pages
+--------------------------------------------------------------*/
+.service-detail-page {
+  background: linear-gradient(180deg, #f5f8fc 0%, #ffffff 55%);
+}
+
+.service-hero {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+.service-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(16, 30, 49, 0.85) 0%, rgba(16, 30, 49, 0.55) 55%, rgba(16, 30, 49, 0.35) 100%);
+}
+
+.service-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.service-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid rgba(65, 121, 190, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 28px rgba(17, 33, 55, 0.08);
+}
+
+.service-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+}
+
+.service-list li::before {
+  content: "\f26a";
+  font-family: bootstrap-icons;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent-color);
+}
+
+.service-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    min-height: 260px;
+  }
+
+  .service-card {
+    padding: 18px;
+  }
 }

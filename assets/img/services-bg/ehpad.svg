@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" role="img" aria-label="Fond ehpad">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6a4d2b"/>
+      <stop offset="100%" stop-color="#b7874f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="700" fill="url(#g5)"/>
+  <g fill="rgba(255,255,255,.14)">
+    <path d="M1050 510 C1120 350 1240 270 1360 230 C1410 300 1430 380 1400 470 C1320 540 1200 570 1050 510 Z"/>
+    <path d="M990 550 C1060 430 1150 360 1250 330 C1280 390 1280 470 1230 540 C1140 590 1060 590 990 550 Z" fill="rgba(255,255,255,.10)"/>
+  </g>
+  <g stroke="rgba(255,255,255,.18)" stroke-width="3" fill="none">
+    <path d="M120 620 C330 520 520 640 720 580 C910 530 1080 640 1280 590 C1400 560 1500 580 1600 560"/>
+    <path d="M0 560 C210 470 430 590 640 540 C860 490 1080 610 1290 560 C1420 530 1510 545 1600 530"/>
+  </g>
+</svg>

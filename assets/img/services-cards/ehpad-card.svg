@@ -1,0 +1,24 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="EHPAD">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff9ef"/>
+      <stop offset="100%" stop-color="#ffe2ad"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="520" rx="24" fill="url(#bg)"/>
+  <rect x="805" y="170" width="272" height="230" rx="16" fill="#f9c46c" opacity=".62"/>
+  <path d="M780 185 l161-94 161 94 z" fill="#f2b55a" opacity=".75"/>
+  <rect x="922" y="278" width="52" height="122" fill="#f2b55a" opacity=".8"/>
+  <g fill="#ffebc3" opacity=".9">
+    <rect x="840" y="210" width="38" height="34"/>
+    <rect x="894" y="210" width="38" height="34"/>
+    <rect x="950" y="210" width="38" height="34"/>
+    <rect x="1006" y="210" width="38" height="34"/>
+  </g>
+  <circle cx="758" cy="345" r="54" fill="#efc06a" opacity=".7"/>
+  <circle cx="1112" cy="332" r="48" fill="#efc06a" opacity=".7"/>
+  <g fill="#f6d08a" opacity=".78">
+    <circle cx="840" cy="432" r="22"/>
+    <circle cx="905" cy="432" r="22"/>
+  </g>
+</svg>

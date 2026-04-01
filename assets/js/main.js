@@ -1,4 +1,4 @@
-/**
+﻿/**
 * Template Name: KnightOne
 * Template URL: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/
 * Updated: Oct 16 2024 with Bootstrap v5.3.3
@@ -248,25 +248,18 @@ function initializeSwiperRANDOMID(){
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  var audio = document.getElementById("background-music");
-  var button = document.getElementById("toggle-music");
-  var icon = document.getElementById("music-icon");
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.service-menu-card').forEach(function(card) {
+    const link = card.querySelector('a.stretched-link');
+    if (!link) return;
 
-  audio.volume = 0.3; // Set default volume
+    card.style.cursor = 'pointer';
 
-  button.addEventListener("click", function () {
-    if (audio.paused) {
-      audio.play();
-      icon.classList.remove("bi-volume-mute");
-      icon.classList.add("bi-volume-up");
-    } else {
-      audio.pause();
-      icon.classList.remove("bi-volume-up");
-      icon.classList.add("bi-volume-mute");
-    }
+    card.addEventListener('click', function(event) {
+      if (event.target.closest('a')) return;
+      window.location.href = link.href;
+    });
   });
 });
-
 
 
